@@ -1,0 +1,94 @@
+﻿<Page
+    x:Class="MyCalculator.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCalculator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" FontFamily="Segoe UI">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Page.Resources>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.ColumnSpan="4" Background="{StaticResource MemoryButtonColor}">
+            <TextBlock x:Name="Memory" FontSize="24" TextAlignment="Left" Foreground="White">
+                  Memory: <Run x:Name="MemoryValue" Foreground="White"></Run>
+            </TextBlock>
+        </Border>
+        <Border Grid.Row="1" Grid.ColumnSpan="4">
+            <TextBlock x:Name="Display" Foreground="Black" FontSize="72" 
+                           TextAlignment="Right" VerticalAlignment="Bottom" FocusVisualPrimaryBrush="#FFF1EBEB"/>
+        </Border>
+
+        <!-- Начало кнопки редактирования значения на дисплее -->
+        <Button Content="7" Click="ButtonEditDisplay_Click" Tag="7"
+                Background="{StaticResource FigureButtonColor}" Grid.Row="4"/>
+        <Button Content="8" Click="ButtonEditDisplay_Click" Tag="8"
+                Background="{StaticResource FigureButtonColor}" Grid.Row="4" Grid.Column="1"/>
+        <Button Content="9" Click="ButtonEditDisplay_Click" Tag="9"
+                Background="{StaticResource FigureButtonColor}" Grid.Row="4" Grid.Column="2"/>
+        <Button Content="4" Click="ButtonEditDisplay_Click" Tag="4"
+                Background="{StaticResource FigureButtonColor}" Grid.Row="5"/>
+        <Button Content="5" Click="ButtonEditDisplay_Click" Tag="5"
+                Background="{StaticResource FigureButtonColor}" Grid.Row="5" Grid.Column="1"/>
+        <Button Content="6" Click="ButtonEditDisplay_Click" Tag="6"
+                Background="{StaticResource FigureButtonColor}" Grid.Row="5" Grid.Column="2"/>
+        <Button Content="1" Click="ButtonEditDisplay_Click" Tag="1"
+                Background="{StaticResource FigureButtonColor}" Grid.Row="6" />
+        <Button Content="2" Click="ButtonEditDisplay_Click" Tag="2"
+                Background="{StaticResource FigureButtonColor}" Grid.Row="6" Grid.Column="1"/>
+        <Button Content="3" Click="ButtonEditDisplay_Click" Tag="3"
+                Background="{StaticResource FigureButtonColor}" Grid.Row="6" Grid.Column="2"/>
+        <Button Content="0" Click="ButtonEditDisplay_Click" Tag="0"
+                Background="{StaticResource FigureButtonColor}" Grid.Row="7" Grid.ColumnSpan="2"/>
+        <Button Content="." Click="ButtonEditDisplay_Click" Tag="."
+                Background="{StaticResource FigureButtonColor}" Grid.Row="7" Grid.Column="2"/>
+        <Button Content="C" Tag="Clear" Click="ButtonEditDisplay_Click" 
+                Background="{StaticResource CleanButtonColor}" Grid.Row="2" Grid.Column="2"/>
+        <Button Content="←" Tag="BackSpace" x:Name="ButtonBackSpace" Click="ButtonBackSpace_Click" 
+                Background="{StaticResource CleanButtonColor}" Grid.Row="2" Grid.Column="3"/>
+        <!-- Конец кнопки редактирования значения на дисплее -->
+
+        <!-- Начало кнопки ввода операторов -->
+        <Button Content="ˣ" Tag="Multiplication" Click="ButtonOperator_Click" Background="{StaticResource OperatorButtonColor}" Grid.Row="4" Grid.Column="3"/>
+        <Button Content="±" Background="{StaticResource OperatorButtonColor}" Grid.Row="3" Grid.Column="2" Click="ButtonSign_Click"/>
+        <Button Content="% OFF" Tag="Discount"  Click="ButtonOperator_Click" Background="{StaticResource DiscountButtonColor}" Grid.Row="3" Grid.Column="1" FontSize="40" />
+        <Button Content="÷" Tag="Division" Click="ButtonOperator_Click" Background="{StaticResource OperatorButtonColor}" Grid.Row="3" Grid.Column="3"/>
+        <Button Content="+" Tag="Plus" Click="ButtonOperator_Click" Background="{StaticResource OperatorButtonColor}" Grid.Row="6" Grid.Column="3"/>
+        <Button Content="-" Tag="Minus" Click="ButtonOperator_Click" Background="{StaticResource OperatorButtonColor}" Grid.Row="5" Grid.Column="3"/>
+        <!-- Конец кнопки ввода операторов -->
+
+        <!-- Начало кнопки операций работы с памятью -->
+        <Button Content="MR" Tag="mr" Background="{StaticResource MemoryButtonColor}" Grid.Row="2" Click="ButtonMemory_Click"/>
+        <Button Content="MC" Tag="mc" Background="{StaticResource MemoryButtonColor}" Grid.Row="2" Grid.Column="1" Click="ButtonMemory_Click"/>
+        <Button Content="M" Tag="m" Background="{StaticResource MemoryButtonColor}" Grid.Row="3" Click="ButtonMemory_Click" />
+        <!-- Конец кнопки операций работы с памятью -->
+
+        <!--Кнопка вывода результата-->
+        <Button Content="=" Click="ButtonCalc_Click" Tag="Equal" Background="{StaticResource EqualSymbolButtonColor}" 
+                Grid.Row="7" Grid.Column="3"/>
+    </Grid>
+</Page>
