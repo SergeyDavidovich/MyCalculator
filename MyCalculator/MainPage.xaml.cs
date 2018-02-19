@@ -210,7 +210,10 @@ namespace MyCalculator
             {
                 case "." when !currentDisplayText.Contains("."):
                     {
-                        if (currentDisplayText == "") currentDisplayText = "0.";
+                        if (currentDisplayText == "")
+                            currentDisplayText = "0.";
+                        else
+                            currentDisplayText += ".";
                         Result = currentDisplayText;
                         break;
                     }
