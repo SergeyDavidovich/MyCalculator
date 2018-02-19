@@ -211,7 +211,7 @@ namespace MyCalculator
                 case "." when !currentDisplayText.Contains("."):
                     {
                         if (currentDisplayText == "") currentDisplayText = "0.";
-                        Result += tag;
+                        Result = currentDisplayText;
                         break;
                     }
                 case "0" when currentDisplayText != "0":

@@ -88,7 +88,7 @@
         <!-- Конец кнопки операций работы с памятью -->
 
         <!--Кнопка вывода результата-->
-        <Button Content="=" Click="ButtonCalc_Click" Tag="Equal" Background="{StaticResource EqualSymbolButtonColor}" 
+        <Button Content = "=" Click="ButtonCalc_Click" Tag="Equal" Background="{StaticResource EqualSymbolButtonColor}" 
                 Grid.Row="7" Grid.Column="3"/>
     </Grid>
 </Page>
