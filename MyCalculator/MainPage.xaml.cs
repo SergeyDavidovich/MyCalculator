@@ -15,9 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MyCalculator
 {
-    /// <summary>
-    /// Основная страница приложения
-    /// </summary>
+    
     public sealed partial class MainPage : Page
     {
         bool isBackSpaceApplicable; //флаг - возможно ли редактирование дисплея кнопкой BackSpace
